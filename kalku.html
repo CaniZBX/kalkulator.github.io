@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="images/fevicon.png" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Kalkulator</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- header section strats -->
+    <header class="footer_section">
+      <!-- <meta http-equiv="refresh" content="9" /> -->
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>Diagnosa  Kanker</span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+                <a class="navbar-brand" href="index.html">
+                    <span>Home</span>
+                </a>
+            </ul>
+            
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    
+
+  
+  <section class="contact_section layout_padding-bottom" id="kalku">
+    <div class="container">
+      <p> </p>
+      <div class="heading_container heading_center">
+        <h2>
+          Kalkulator Risiko Pemeriksaan CT Scan
+        </h2>
+      </div>
+      <div class="row"> 
+        <div class="col-md-12 col-lg-4 mx-auto">
+          <div class="form_container">
+            <form action="">
+              <div>
+                <label for="dlp">
+                  <p>Nilai DLP</p>
+                </label>
+                <input id="dlp" type="number" />
+              </div>
+              <div> 
+                <label for="umur">
+                  <p>Umur</p>
+                </label>
+                <span  class="custom-dropdown big">
+                  <select id="umur">    
+                      <option value = "0">0</option>
+                      <option value = "1">1</option>
+                      <option value = "5">5</option>  
+                      <option value ="10">10</option>
+                      <option value ="Dewasa">Dewasa</option>
+                  </select>
+              </span>
+              </div>
+              <div> 
+                <label for="tubuh">
+                  <p>Organ Tubuh</p>
+                </label>
+                <span  class="custom-dropdown big">
+                  <select id="organ">    
+                      <option value="kepala&leher">Kepala & Leher</option>
+                      <option value="kepala">Kepala</option>  
+                      <option value="leher">Leher</option>
+                      <option value="dada">Dada</option>
+                      <option value="abdomen">Abdomen & Pelvis</option>
+                      <option value="trunk">Trunk</option>
+                     
+                  </select>
+              </span>
+              </div>
+              <div> 
+                <label for="status">
+                  <p>Status</p>
+                </label>
+                <span class="custom-dropdown big">
+                  <select id="status">    
+                      <option value="masyarakat">Masyarakat Umum</option>
+                      <option value="pekerja">Pekerja</option>  
+                  </select>
+                </span>
+              </div>
+              <div>
+                <label for="k">
+                  <p>K</p>
+                </label>
+                <input id="k" type="number" />
+              </div>
+                <div>
+                 
+                    <button  type="button" id="calculateButton">
+                      Hitung
+                    </button>
+                  
+                </div>
+            </form>
+          </div>
+        </div>
+
+      
+        
+        <div class="col-md-12 col-lg-4 mx-auto">
+          <div class="form_container">
+            <form >
+              <div>
+                <label for="dosis">
+                  <p>Dosis Efektif (mSv)</p>
+                </label>
+              
+                <input id="result" type="text" readonly />
+              </div>
+              <div>
+                <label for="kanker">
+                  <p>Faktor Risiko Kanker (%)</p>
+                </label>
+              
+                <input id="result2" type="text" readonly />
+              </div>
+              <div>
+                <label for="hereditas">
+                  <p>Faktor Risiko Heraditas (%)</p>
+                </label>
+                <input id="result3" type="text" readonly />
+              </div>
+             
+            </form>
+          
+          </div>
+        </div>
+      
+      </div>
+      
+      </div>
+    </div>
+  </section>
+ 
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+
+
+  <script>
+     
+    
+    document.getElementById("calculateButton").addEventListener("click", function() {
+        var dlp = parseFloat(document.getElementById("dlp").value);
+        var k = parseFloat(document.getElementById("k").value);
+
+        var selectInput = document.getElementById("umur");
+        var selectedValue = selectInput.value;
+
+        var selectInput = document.getElementById("organ");
+        var selectedN = selectInput.value;
+        var resultSelect = document.getElementById("resultSelect");
+        var nilai;
+      if  (selectedValue === "0" && selectedN ==="kepala&leher" ) {
+         nilai = 0.013;
+        
+      }
+      if  (selectedValue === "0" && selectedN ==="kepala" ) {
+         nilai = 0.011;
+        
+      }
+      if  (selectedValue === "0" && selectedN ==="leher" ) {
+         nilai = 0.017;
+        
+      }
+      if  (selectedValue === "0" && selectedN ==="dada" ) {
+         nilai = 0.039;
+        
+      }
+      if  (selectedValue === "0" && selectedN ==="abdomen" ) {
+         nilai = 0.049;
+        
+      }
+      if  (selectedValue === "0" && selectedN ==="trunk" ) {
+         nilai = 0.044;
+        
+      }
+      //1
+      if  (selectedValue === "1" && selectedN ==="kepala&leher" ) {
+         nilai = 0.0085;
+        
+      }
+      if  (selectedValue === "1" && selectedN ==="kepala" ) {
+         nilai = 0.0067;
+        
+      }
+      if  (selectedValue === "1" && selectedN ==="leher" ) {
+         nilai = 0.012;
+        
+      }
+      if  (selectedValue === "1" && selectedN ==="dada" ) {
+         nilai = 0.026;
+        
+      }
+      if  (selectedValue === "1" && selectedN ==="abdomen" ) {
+         nilai = 0.030;
+        
+      }
+      if  (selectedValue === "1" && selectedN ==="trunk" ) {
+         nilai = 0.028;
+        
+      }
+      //5
+      if  (selectedValue === "5" && selectedN ==="kepala&leher" ) {
+         nilai = 0.00057;
+        
+      }
+      if  (selectedValue === "5" && selectedN ==="kepala" ) {
+         nilai = 0.0040;
+        
+      }
+      if  (selectedValue === "5" && selectedN ==="leher" ) {
+         nilai = 0.011;
+        
+      }
+      if  (selectedValue === "5" && selectedN ==="dada" ) {
+         nilai = 0.018;
+        
+      }
+      if  (selectedValue === "5" && selectedN ==="abdomen" ) {
+         nilai = 0.020;
+        
+      }
+      if  (selectedValue === "5" && selectedN ==="trunk" ) {
+         nilai = 0.019;
+        
+      }
+      //10
+      if  (selectedValue === "10" && selectedN ==="kepala&leher" ) {
+         nilai = 0.0042;
+        
+      }
+      if  (selectedValue === "10" && selectedN ==="kepala" ) {
+         nilai = 0.0032;
+        
+      }
+      if  (selectedValue === "10" && selectedN ==="leher" ) {
+         nilai = 0.0079;
+        
+      }
+      if  (selectedValue === "10" && selectedN ==="dada" ) {
+         nilai = 0.013;
+        
+      }
+      if  (selectedValue === "10" && selectedN ==="abdomen" ) {
+         nilai = 0.015;
+        
+      }
+      if  (selectedValue === "10" && selectedN ==="trunk" ) {
+         nilai = 0.014;
+        
+      }
+      //dewasa
+      if  (selectedValue === "Dewasa" && selectedN ==="kepala&leher" ) {
+         nilai = 0.0031;
+        
+      }
+      if  (selectedValue === "Dewasa" && selectedN ==="kepala" ) {
+         nilai = 0.0021;
+        
+      }
+      if  (selectedValue === "Dewasa" && selectedN ==="leher" ) {
+         nilai = 0.0059;
+        
+      }
+      if  (selectedValue === "Dewasa" && selectedN ==="dada" ) {
+         nilai = 0.014;
+        
+      }
+      if  (selectedValue === "Dewasa" && selectedN ==="abdomen" ) {
+         nilai = 0.015;
+        
+      }
+      if  (selectedValue === "Dewasa" && selectedN ==="trunk" ) {
+         nilai = 0.015;
+        
+      }
+      
+      var selectInput1 = document.getElementById("status");
+        var selectedS = selectInput1.value;
+        var kanker=0;
+        var hereditas=0;
+        if  (selectedS ==="masyarakat"){
+           kanker = 0.0055;
+           hereditas =0.2;
+        }
+        if(selectedS ==="pekerja"){
+           kanker = 4.1;
+           hereditas =0.1;
+        }
+        var dosisE = dlp * nilai;
+        document.getElementById("result").value = dosisE;
+        var risikoKanker = dosisE * kanker;
+        document.getElementById("result2").value = risikoKanker ;
+        var risikoHeraditas = dosisE * hereditas;
+        document.getElementById("result3").value = risikoHeraditas;
+
+    });
+</script>
+</body>
+
+</html>
